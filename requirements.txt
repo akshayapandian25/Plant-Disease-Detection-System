@@ -1,4 +1,9 @@
 streamlit
-tensorflow==2.12.0
-numpy==1.23.5
-pillow
+tensorflow==2.18.0
+numpy
+pandas
+matplotlib
+seaborn
+scikit_learn
+opencv_python_headless
+Pillow
