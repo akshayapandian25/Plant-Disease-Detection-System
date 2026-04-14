@@ -1,6 +1,18 @@
 import streamlit as st
 import tensorflow as tf
 import numpy as np
+import os
+import gdown
+
+# Download model from Google Drive if not present
+MODEL_PATH = "trained_plant_disease_model.keras"
+if not os.path.exists(MODEL_PATH):
+    with st.spinner("Loading model... please wait"):
+        gdown.download(
+            id="1eY61TPsirLa1KZYj131ff26WKBdU8pjm",  # ← paste your Google Drive file ID
+            output=MODEL_PATH,
+            quiet=False
+        )
 def model_prediction(test_image):
     model = tf.keras.models.load_model("trained_plant_disease_model.keras")
     image = tf.keras.preprocessing.image.load_img(test_image,target_size=(128,128))
